@@ -1,6 +1,6 @@
-# TODO: add project title
+# typescript-rest-jwt
 
-TODO: add project description
+TS REST API with JWT authentication
 
 ## Authors
 

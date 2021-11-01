@@ -8,7 +8,12 @@
     "moduleResolution": "node",
     "baseUrl": "./src",
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "typeRoots": [
+      "./custom_typings",
+      "./node_modules/@types"
+    ],
   }
 }
