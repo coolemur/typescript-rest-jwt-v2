@@ -5,7 +5,7 @@ import config from './config.json';
 export function verifyToken(req: express.Request, res: express.Response, next: express.NextFunction): void {
   const jwtCookie = req.cookies.JWT;
 
-  jwt.verify(jwtCookie, 'secretkey', (err: jwt.VerifyErrors | null, decoded: jwt.JwtPayload | undefined) => {
+  jwt.verify(jwtCookie, 'secretkey', (err: jwt.VerifyErrors | null, decoded: any) => {
     if (err) {
       res.sendStatus(403);
     } else {
@@ -40,7 +40,7 @@ export function refreshToken(req: express.Request, res: express.Response, next: 
   const jwtData = jwt.decode(jwtCookie);
 
   if (jwtData && req.url !== '/api/login' && req.url !== '/api/register') {
-    jwt.verify(jwtCookie, 'secretkey', (err: jwt.VerifyErrors | null, authData: jwt.JwtPayload | undefined) => {
+    jwt.verify(jwtCookie, 'secretkey', (err: jwt.VerifyErrors | null, authData: any) => {
       if (err) {
         if (err.name === 'TokenExpiredError') {
           res.cookie('JWT', null);
