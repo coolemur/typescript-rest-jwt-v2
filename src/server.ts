@@ -15,10 +15,6 @@ export default function createServer() {
   app.use(cookieParser());
   app.use(refreshToken);
 
-  app.get('/', (req: Request, res: Response) => {
-    res.send('Hello world!');
-  });
-
   app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerFile));
 
   app.use(routes);
